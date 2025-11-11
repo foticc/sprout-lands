@@ -1,0 +1,39 @@
+[gd_scene load_steps=8 format=3 uid="uid://jr0ss1k8w6la"]
+
+[ext_resource type="SpriteFrames" uid="uid://bm8rs8tu56yeq" path="res://res/player.tres" id="1_bqcf3"]
+[ext_resource type="Script" uid="uid://bbyrcqwbiilp5" path="res://classes/player/player.gd" id="1_p1pen"]
+[ext_resource type="Script" uid="uid://dn2eo1fdx4g28" path="res://classes/state_machine/node_state_machine.gd" id="2_7jbsp"]
+[ext_resource type="Script" uid="uid://c1433bj50vsk2" path="res://classes/player/state/idle.gd" id="4_lmueq"]
+[ext_resource type="Script" uid="uid://c41uxprkfecra" path="res://classes/player/state/run.gd" id="5_8chl3"]
+[ext_resource type="Script" uid="uid://cisqnabmf8w37" path="res://classes/player/state/demo.gd" id="6_tfme3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bqcf3"]
+radius = 7.0
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_p1pen")
+
+[node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -8)
+sprite_frames = ExtResource("1_bqcf3")
+animation = &"idle_front"
+autoplay = "idle_front"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -8)
+shape = SubResource("CircleShape2D_bqcf3")
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_node_state")]
+script = ExtResource("2_7jbsp")
+initial_node_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("player")]
+script = ExtResource("4_lmueq")
+player = NodePath("../..")
+
+[node name="Run" type="Node" parent="StateMachine" node_paths=PackedStringArray("player")]
+script = ExtResource("5_8chl3")
+player = NodePath("../..")
+
+[node name="Demo" type="Node" parent="StateMachine"]
+script = ExtResource("6_tfme3")

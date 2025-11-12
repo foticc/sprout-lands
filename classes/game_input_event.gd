@@ -19,3 +19,6 @@ static func get_input_direction() -> Vector2:
 
 static func is_move_input()->bool:
 	return direction != Vector2.ZERO
+
+static func use_tools()->bool:
+	return Input.is_action_just_pressed("hit")

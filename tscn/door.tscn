@@ -1,0 +1,111 @@
+[gd_scene load_steps=16 format=3 uid="uid://c5748bvgrgljx"]
+
+[ext_resource type="Script" uid="uid://cfwcgjwscaugp" path="res://classes/door.gd" id="1_276s7"]
+[ext_resource type="Texture2D" uid="uid://4adkxom7ce8r" path="res://asset/Tilesets/Doors.png" id="1_v4ngw"]
+[ext_resource type="PackedScene" uid="uid://4jq76ut3qen0" path="res://tscn/components/interactive_component.tscn" id="2_mairw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v4ngw"]
+atlas = ExtResource("1_v4ngw")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_276s7"]
+atlas = ExtResource("1_v4ngw")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dddhf"]
+atlas = ExtResource("1_v4ngw")
+region = Rect2(0, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_160cd"]
+atlas = ExtResource("1_v4ngw")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mairw"]
+atlas = ExtResource("1_v4ngw")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d3mqh"]
+atlas = ExtResource("1_v4ngw")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7bk15"]
+atlas = ExtResource("1_v4ngw")
+region = Rect2(0, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mx4te"]
+atlas = ExtResource("1_v4ngw")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vce7q"]
+atlas = ExtResource("1_v4ngw")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ygi4l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v4ngw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_276s7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dddhf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_160cd")
+}],
+"loop": false,
+"name": &"close_door",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mairw")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d3mqh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7bk15")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mx4te")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vce7q")
+}],
+"loop": false,
+"name": &"open_door",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v4ngw"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mairw"]
+size = Vector2(12, 40)
+
+[node name="Door" type="StaticBody2D"]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_276s7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ygi4l")
+animation = &"open_door"
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_v4ngw")
+
+[node name="InteractiveComponent" parent="." instance=ExtResource("2_mairw")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractiveComponent"]
+shape = SubResource("RectangleShape2D_mairw")
+debug_color = Color(0.90435755, 0.26783204, 0.3910058, 0.41960785)

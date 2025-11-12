@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://jr0ss1k8w6la"]
+[gd_scene load_steps=11 format=3 uid="uid://jr0ss1k8w6la"]
 
 [ext_resource type="SpriteFrames" uid="uid://bm8rs8tu56yeq" path="res://res/player.tres" id="1_bqcf3"]
 [ext_resource type="Script" uid="uid://bbyrcqwbiilp5" path="res://classes/player/player.gd" id="1_p1pen"]
@@ -6,21 +6,28 @@
 [ext_resource type="Script" uid="uid://c1433bj50vsk2" path="res://classes/player/state/idle.gd" id="4_lmueq"]
 [ext_resource type="Script" uid="uid://c41uxprkfecra" path="res://classes/player/state/run.gd" id="5_8chl3"]
 [ext_resource type="Script" uid="uid://cisqnabmf8w37" path="res://classes/player/state/demo.gd" id="6_tfme3"]
+[ext_resource type="Script" uid="uid://jy80t1jr43ae" path="res://classes/player/state/chopping.gd" id="7_m87kf"]
+[ext_resource type="Script" uid="uid://duvl7pcvn268a" path="res://classes/player/state/tilling.gd" id="7_q780a"]
+[ext_resource type="Script" uid="uid://dhv4xf8vaudi0" path="res://classes/player/state/watering.gd" id="9_rpqkn"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bqcf3"]
-radius = 7.0
+radius = 6.0
 
 [node name="Player" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 5
+motion_mode = 1
 script = ExtResource("1_p1pen")
+tools = 2
 
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -8)
 sprite_frames = ExtResource("1_bqcf3")
-animation = &"idle_front"
+animation = &"watering_back"
 autoplay = "idle_front"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -8)
+position = Vector2(0, -6)
 shape = SubResource("CircleShape2D_bqcf3")
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_node_state")]
@@ -37,3 +44,15 @@ player = NodePath("../..")
 
 [node name="Demo" type="Node" parent="StateMachine"]
 script = ExtResource("6_tfme3")
+
+[node name="Tilling" type="Node" parent="StateMachine" node_paths=PackedStringArray("player")]
+script = ExtResource("7_q780a")
+player = NodePath("../..")
+
+[node name="Chopping" type="Node" parent="StateMachine" node_paths=PackedStringArray("player")]
+script = ExtResource("7_m87kf")
+player = NodePath("../..")
+
+[node name="Watering" type="Node" parent="StateMachine" node_paths=PackedStringArray("player")]
+script = ExtResource("9_rpqkn")
+player = NodePath("../..")

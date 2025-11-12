@@ -1,19 +1,20 @@
 extends CharacterBody2D
 class_name Player
 
+
+@export var tools:DataTypes.Tools = DataTypes.Tools.None
+
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite
 
-var direction = Vector2.ZERO
+var direction = Vector2.DOWN
 
 func _ready() -> void:
 	pass
 
-func _unhandled_input(_event: InputEvent) -> void:
-	self.direction = GameInputEvent.get_input_direction()
-	
 
 func move(dir:Vector2,speed:float = 0)->void:
-	self.direction = dir
+	if dir != Vector2.ZERO:
+		self.direction = dir
 	velocity = speed * dir
 	move_and_slide()
 
@@ -30,6 +31,7 @@ func play_anim(anim:String)->void:
 			anim_name += "right"
 		_:
 			return
+	#print(anim_name)
 	self.animated_sprite.play(anim_name)
 
 func stop_anim()->void:

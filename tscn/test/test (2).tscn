@@ -26,5 +26,15 @@ tile_set = ExtResource("1_qdapc")
 tile_map_data = PackedByteArray("AAACAAIABAAAAAAAAQA=")
 tile_set = ExtResource("1_qdapc")
 
+[node name="Trees" type="TileMapLayer" parent="Env"]
+tile_map_data = PackedByteArray("AAAZAAwABAAAAAAAAgAcAA0ABAAAAAAAAgAZABEABAAAAAAABAAeABAABAAAAAAABAAiAAsABAAAAAAABAA=")
+tile_set = ExtResource("1_qdapc")
+
 [node name="Player" parent="." instance=ExtResource("2_2eeid")]
-position = Vector2(126, 236)
+position = Vector2(367, 218)
+tools = 1
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true

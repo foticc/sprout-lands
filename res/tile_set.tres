@@ -1,12 +1,13 @@
-[gd_resource type="TileSet" load_steps=13 format=3 uid="uid://bgktw217b3aj5"]
+[gd_resource type="TileSet" load_steps=14 format=3 uid="uid://bgktw217b3aj5"]
 
 [ext_resource type="Texture2D" uid="uid://ckmfumhnhs7d6" path="res://asset/Tilesets/Tilled_Dirt_Wide.png" id="1_6e08p"]
 [ext_resource type="Texture2D" uid="uid://bd157hq2xnhhs" path="res://asset/Tilesets/Water.png" id="1_bjsdx"]
 [ext_resource type="Texture2D" uid="uid://7k6g0mvrix5i" path="res://asset/Tilesets/Grass.png" id="2_a2n3b"]
 [ext_resource type="Texture2D" uid="uid://dqu2gw41j3kvx" path="res://asset/Objects/Basic_Grass_Biom_things.png" id="4_clsun"]
 [ext_resource type="PackedScene" uid="uid://bc7irofeo4f00" path="res://tscn/test/house.tscn" id="5_amwj7"]
-[ext_resource type="PackedScene" uid="uid://b6wjxmkgbyeu3" path="res://tscn/objects/small_tree.tscn" id="6_qgyga"]
-[ext_resource type="PackedScene" uid="uid://d14qfhripvd5p" path="res://tscn/objects/large_tree.tscn" id="7_oj10g"]
+[ext_resource type="PackedScene" uid="uid://b6wjxmkgbyeu3" path="res://tscn/objects/tree/small_tree.tscn" id="6_wim2s"]
+[ext_resource type="PackedScene" uid="uid://cd7cu7oivrvs2" path="res://tscn/objects/rocks/rock.tscn" id="7_5txth"]
+[ext_resource type="PackedScene" uid="uid://d14qfhripvd5p" path="res://tscn/objects/tree/large_tree.tscn" id="8_4abkk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_clsun"]
 texture = ExtResource("1_6e08p")
@@ -457,6 +458,7 @@ texture = ExtResource("4_clsun")
 7:2/0 = 0
 8:2/size_in_atlas = Vector2i(1, 2)
 8:2/0 = 0
+8:2/0/y_sort_origin = 9
 8:4/0 = 0
 7:4/0 = 0
 6:4/0 = 0
@@ -475,8 +477,9 @@ texture = ExtResource("4_clsun")
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_qgyga"]
 scenes/1/scene = ExtResource("5_amwj7")
-scenes/2/scene = ExtResource("6_qgyga")
-scenes/4/scene = ExtResource("7_oj10g")
+scenes/2/scene = ExtResource("6_wim2s")
+scenes/3/scene = ExtResource("7_5txth")
+scenes/4/scene = ExtResource("8_4abkk")
 
 [resource]
 terrain_set_0/mode = 0

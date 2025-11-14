@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://dnlds28eo2dli"]
+
+[ext_resource type="SpriteFrames" uid="uid://dt30bbi4ahvui" path="res://res/chicken.tres" id="1_18eng"]
+[ext_resource type="Script" uid="uid://sr3ucgtoewxy" path="res://tscn/characters/chicken/chicken.gd" id="1_hj2ve"]
+[ext_resource type="Script" uid="uid://dn2eo1fdx4g28" path="res://classes/state_machine/node_state_machine.gd" id="2_8naha"]
+[ext_resource type="Script" uid="uid://dws6i072pw3hl" path="res://tscn/characters/chicken/idle.gd" id="3_7dy51"]
+[ext_resource type="Script" uid="uid://bc7f60238rmpp" path="res://tscn/characters/chicken/run.gd" id="4_hj2ve"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_loa0j"]
+radius = 4.1231055
+
+[node name="Chicken" type="CharacterBody2D"]
+script = ExtResource("1_hj2ve")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("1_18eng")
+animation = &"run"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 2)
+shape = SubResource("CircleShape2D_loa0j")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+avoidance_enabled = true
+radius = 5.0
+debug_enabled = true
+
+[node name="NodeStateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_node_state")]
+script = ExtResource("2_8naha")
+initial_node_state = NodePath("Idle")
+metadata/_custom_type_script = "uid://dn2eo1fdx4g28"
+
+[node name="Idle" type="Node" parent="NodeStateMachine" node_paths=PackedStringArray("chicken", "animated_sprite_2d")]
+script = ExtResource("3_7dy51")
+chicken = NodePath("../..")
+animated_sprite_2d = NodePath("../../AnimatedSprite2D")
+
+[node name="Run" type="Node" parent="NodeStateMachine" node_paths=PackedStringArray("chicken", "animated_sprite_2d", "navigationagent2d")]
+script = ExtResource("4_hj2ve")
+chicken = NodePath("../..")
+animated_sprite_2d = NodePath("../../AnimatedSprite2D")
+navigationagent2d = NodePath("../../NavigationAgent2D")

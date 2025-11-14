@@ -1,0 +1,74 @@
+[gd_scene load_steps=10 format=3 uid="uid://dvp3j8wn54xjm"]
+
+[ext_resource type="Texture2D" uid="uid://i3cw4vka6i3y" path="res://asset/Characters/Free Cow Sprites.png" id="1_slkgc"]
+[ext_resource type="Script" uid="uid://dn2eo1fdx4g28" path="res://classes/state_machine/node_state_machine.gd" id="2_dd273"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dd273"]
+atlas = ExtResource("1_slkgc")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ch8vn"]
+atlas = ExtResource("1_slkgc")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pmcir"]
+atlas = ExtResource("1_slkgc")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_slkgc"]
+atlas = ExtResource("1_slkgc")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r2aff"]
+atlas = ExtResource("1_slkgc")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4c0rd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dd273")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ch8vn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pmcir")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_slkgc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r2aff")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_slkgc"]
+radius = 7.0
+
+[node name="Cow" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -16)
+sprite_frames = SubResource("SpriteFrames_4c0rd")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -10)
+shape = SubResource("CircleShape2D_slkgc")
+
+[node name="NodeStateMachine" type="Node" parent="."]
+script = ExtResource("2_dd273")
+
+[node name="Idle" type="Node" parent="NodeStateMachine"]
+
+[node name="Run" type="Node" parent="NodeStateMachine"]

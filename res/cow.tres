@@ -1,0 +1,51 @@
+[gd_resource type="SpriteFrames" load_steps=7 format=3 uid="uid://b3ispopr0nc61"]
+
+[ext_resource type="Texture2D" uid="uid://i3cw4vka6i3y" path="res://asset/Characters/Free Cow Sprites.png" id="1_ulwuc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dd273"]
+atlas = ExtResource("1_ulwuc")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ch8vn"]
+atlas = ExtResource("1_ulwuc")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pmcir"]
+atlas = ExtResource("1_ulwuc")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_slkgc"]
+atlas = ExtResource("1_ulwuc")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r2aff"]
+atlas = ExtResource("1_ulwuc")
+region = Rect2(32, 32, 32, 32)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dd273")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ch8vn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pmcir")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_slkgc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r2aff")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]

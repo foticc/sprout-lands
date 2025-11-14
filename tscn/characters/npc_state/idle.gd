@@ -1,6 +1,6 @@
 extends NodeState
 
-@export var chicken: NonPlayableCharacter
+@export var character: NonPlayableCharacter
 @export var animated_sprite_2d: AnimatedSprite2D
 
 @onready var timer:Timer = Timer.new()

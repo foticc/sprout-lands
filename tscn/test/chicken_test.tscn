@@ -1,13 +1,19 @@
-[gd_scene load_steps=5 format=4 uid="uid://c13smep62pims"]
+[gd_scene load_steps=7 format=4 uid="uid://c13smep62pims"]
 
 [ext_resource type="TileSet" uid="uid://bgktw217b3aj5" path="res://res/tile_set.tres" id="1_etscm"]
 [ext_resource type="PackedScene" uid="uid://jr0ss1k8w6la" path="res://tscn/characters/player.tscn" id="2_6lyih"]
 [ext_resource type="PackedScene" uid="uid://dnlds28eo2dli" path="res://tscn/characters/chicken/chicken.tscn" id="3_6lyih"]
+[ext_resource type="PackedScene" uid="uid://dvp3j8wn54xjm" path="res://tscn/characters/cow/cow.tscn" id="4_icpci"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_etscm"]
 vertices = PackedVector2Array(351.85156, 140.75781, 253.20313, 166.04688, 254.84375, 62.929688, 372.9375, 62.09375)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(245, 53, 243, 179, 360, 149, 386, 52)])
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_6lyih"]
+vertices = PackedVector2Array(252, 236.85156, 252, 308, 64.42969, 308, 67.57031, 234.14063)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(262, 227, 262, 318, 54, 318, 58, 224)])
 
 [node name="Test" type="Node2D"]
 y_sort_enabled = true
@@ -65,3 +71,18 @@ position = Vector2(346, 135)
 
 [node name="Chicken3" parent="ChickenNav" instance=ExtResource("3_6lyih")]
 position = Vector2(328, 99)
+
+[node name="CowNav" type="Node2D" parent="."]
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="CowNav"]
+navigation_polygon = SubResource("NavigationPolygon_6lyih")
+navigation_layers = 2
+
+[node name="Cow" parent="CowNav" instance=ExtResource("4_icpci")]
+position = Vector2(91, 278)
+
+[node name="Cow2" parent="CowNav" instance=ExtResource("4_icpci")]
+position = Vector2(137, 295)
+
+[node name="Cow3" parent="CowNav" instance=ExtResource("4_icpci")]
+position = Vector2(131, 266)

@@ -5,11 +5,12 @@ class_name Player
 @export var tools:DataTypes.Tools = DataTypes.Tools.None
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite
+@onready var hit_component: HitComponent = $HitComponent
 
 var direction = Vector2.DOWN
 
 func _ready() -> void:
-	pass
+	ToolsManager.tool_change.connect(_on_tool_change)
 
 
 func move(dir:Vector2,speed:float = 0)->void:
@@ -36,3 +37,8 @@ func play_anim(anim:String)->void:
 
 func stop_anim()->void:
 	self.animated_sprite.stop()
+
+
+func _on_tool_change(tool:DataTypes.Tools)->void:
+	self.tools = tool
+	self.hit_component.dataTools = tool

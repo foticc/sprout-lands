@@ -14,11 +14,14 @@ func _ready() -> void:
 
 
 func character_setup()->void:
-	await get_tree().physics_frame
+	# 出现第一次随机点的位置为(0,0)?????????????
+	#await get_tree().physics_frame
+	await get_tree().process_frame
 	set_movement_target()
 
 func set_movement_target()->void:
 	var target_position:Vector2 = NavigationServer2D.map_get_random_point(navigationagent2d.get_navigation_map(),navigationagent2d.navigation_layers,false)
+	prints("target",target_position)
 	navigationagent2d.target_position = target_position
 	
 func _on_process(_delta : float) -> void:

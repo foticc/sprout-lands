@@ -23,7 +23,6 @@ collision_layer = 2
 collision_mask = 5
 motion_mode = 1
 script = ExtResource("1_p1pen")
-tools = 2
 
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -8)
@@ -69,7 +68,6 @@ player = NodePath("../..")
 collision_layer = 8
 collision_mask = 16
 script = ExtResource("10_a2dhv")
-dataTools = 1
 metadata/_custom_type_script = "uid://dm2o4qdrx0k0e"
 
 [node name="HitCollisionShape" type="CollisionShape2D" parent="HitComponent"]

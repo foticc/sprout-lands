@@ -1,0 +1,72 @@
+[gd_scene load_steps=2 format=3 uid="uid://dkpulepoxnt0i"]
+
+[ext_resource type="Theme" uid="uid://cac21ryjs3akx" path="res://res/game_ui_theme.tres" id="1_fxddy"]
+
+[node name="DayAndNightPanel" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_fxddy")
+
+[node name="DayPanel" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_right = 90.0
+offset_bottom = 50.0
+theme_type_variation = &"DayAndNightPanel"
+
+[node name="MarginContainer" type="MarginContainer" parent="DayPanel"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Label" type="Label" parent="DayPanel/MarginContainer"]
+layout_mode = 2
+theme_type_variation = &"DayAndNightLabel"
+text = "DAY 100"
+
+[node name="TimePanel" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_top = 53.0
+offset_right = 92.0
+offset_bottom = 103.0
+theme_type_variation = &"DayAndNightPanel"
+
+[node name="MarginContainer" type="MarginContainer" parent="TimePanel"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="TimePanel/MarginContainer"]
+layout_mode = 2
+theme_type_variation = &"DayAndNightLabel"
+text = "17:42"
+
+[node name="Control" type="Control" parent="."]
+anchors_preset = 0
+offset_top = 109.0
+offset_right = 40.0
+offset_bottom = 149.0
+
+[node name="Button" type="Button" parent="Control"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+theme_type_variation = &"DayAndNightButton"
+text = "1"
+
+[node name="Button2" type="Button" parent="Control"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="Button3" type="Button" parent="Control"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0

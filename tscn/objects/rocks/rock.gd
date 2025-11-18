@@ -4,7 +4,7 @@ extends Sprite2D
 @onready var damage_component: DamageComponent = $DamageComponent
 
 
-var stone_scence = preload("res://tscn/objects/rocks/stone.tscn")
+var stone_scence = preload("res://tscn/objects/collectable/stone.tscn")
 
 func _ready() -> void:
 	hurt_component.hurt.connect(_on_hurt)

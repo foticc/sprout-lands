@@ -8,5 +8,5 @@ func _ready() -> void:
 
 func _on_body_entered(node:Node2D)->void:
 	if node is Player:
-		print("collect")
+		InventoryManager.add_item(collect_name)
 		get_parent().queue_free()

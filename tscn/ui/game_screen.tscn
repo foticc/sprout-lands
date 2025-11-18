@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dehan8ycviok3"]
+[gd_scene load_steps=3 format=3 uid="uid://dehan8ycviok3"]
 
 [ext_resource type="PackedScene" uid="uid://okcn5aedkmmi" path="res://tscn/ui/tools_panel.tscn" id="1_14fw5"]
+[ext_resource type="PackedScene" uid="uid://d4bwuthyx1r5c" path="res://tscn/ui/inventory_panel.tscn" id="2_tepch"]
 
 [node name="GameScreen" type="CanvasLayer"]
 
@@ -15,3 +16,8 @@ grow_vertical = 2
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
+
+[node name="InventoryPanel" parent="MarginContainer" instance=ExtResource("2_tepch")]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4

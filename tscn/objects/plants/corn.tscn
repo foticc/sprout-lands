@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://b10e2vxqnaa0p"]
+
+[ext_resource type="Texture2D" uid="uid://2vyffseq48n1" path="res://asset/Objects/Basic_Plants.png" id="1_m0esq"]
+[ext_resource type="PackedScene" uid="uid://breq3bi0hxmav" path="res://tscn/components/hurt_component.tscn" id="2_12q4j"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_12q4j"]
+radius = 4.1231055
+
+[node name="Corn" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_m0esq")
+hframes = 6
+vframes = 2
+frame = 1
+
+[node name="HurtComponent" parent="." instance=ExtResource("2_12q4j")]
+dataTools = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtComponent"]
+position = Vector2(0, 3)
+shape = SubResource("CircleShape2D_12q4j")

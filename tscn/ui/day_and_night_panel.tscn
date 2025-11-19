@@ -1,19 +1,31 @@
-[gd_scene load_steps=2 format=3 uid="uid://dkpulepoxnt0i"]
+[gd_scene load_steps=7 format=3 uid="uid://dkpulepoxnt0i"]
 
 [ext_resource type="Theme" uid="uid://cac21ryjs3akx" path="res://res/game_ui_theme.tres" id="1_fxddy"]
+[ext_resource type="Texture2D" uid="uid://b0mdo38kbd1yy" path="res://asset/ui/basic_ui_sprites.png" id="2_idpfl"]
+[ext_resource type="Script" uid="uid://ck2rta3p0fjeu" path="res://tscn/ui/day_and_night_panel.gd" id="2_v8oek"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v8oek"]
+atlas = ExtResource("2_idpfl")
+region = Rect2(261, 2, 7, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_idpfl"]
+atlas = ExtResource("2_idpfl")
+region = Rect2(261, 2, 7, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n3ns4"]
+atlas = ExtResource("2_idpfl")
+region = Rect2(261, 2, 7, 12)
 
 [node name="DayAndNightPanel" type="Control"]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 0
 theme = ExtResource("1_fxddy")
+script = ExtResource("2_v8oek")
 
 [node name="DayPanel" type="PanelContainer" parent="."]
 layout_mode = 0
-offset_right = 90.0
+offset_left = -92.0
+offset_right = -2.0
 offset_bottom = 50.0
 theme_type_variation = &"DayAndNightPanel"
 
@@ -26,15 +38,16 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="Label" type="Label" parent="DayPanel/MarginContainer"]
+[node name="DayLabel" type="Label" parent="DayPanel/MarginContainer"]
 layout_mode = 2
 theme_type_variation = &"DayAndNightLabel"
-text = "DAY 100"
+text = "DAY 0"
 
 [node name="TimePanel" type="PanelContainer" parent="."]
 layout_mode = 0
+offset_left = -92.0
 offset_top = 53.0
-offset_right = 92.0
+offset_right = -2.0
 offset_bottom = 103.0
 theme_type_variation = &"DayAndNightPanel"
 
@@ -43,30 +56,100 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="Label" type="Label" parent="TimePanel/MarginContainer"]
+[node name="TimeLabel" type="Label" parent="TimePanel/MarginContainer"]
 layout_mode = 2
 theme_type_variation = &"DayAndNightLabel"
-text = "17:42"
+text = "00:00"
 
 [node name="Control" type="Control" parent="."]
 anchors_preset = 0
-offset_top = 109.0
-offset_right = 40.0
-offset_bottom = 149.0
+offset_left = -92.0
+offset_top = 114.0
+offset_right = -1.0
+offset_bottom = 132.0
 
-[node name="Button" type="Button" parent="Control"]
+[node name="NormalBtn" type="Button" parent="Control"]
+custom_minimum_size = Vector2(24, 18)
 layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
+offset_top = -4.0
+offset_right = 24.0
+offset_bottom = 14.0
 theme_type_variation = &"DayAndNightButton"
-text = "1"
+metadata/_edit_group_ = true
 
-[node name="Button2" type="Button" parent="Control"]
-layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
+[node name="TextureRect" type="TextureRect" parent="Control/NormalBtn"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -3.5
+offset_top = -6.0
+offset_right = 3.5
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_v8oek")
 
-[node name="Button3" type="Button" parent="Control"]
+[node name="DoubleBtn" type="Button" parent="Control"]
+custom_minimum_size = Vector2(24, 18)
 layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
+offset_left = 32.0
+offset_top = -4.0
+offset_right = 56.0
+offset_bottom = 14.0
+size_flags_horizontal = 4
+theme_type_variation = &"DayAndNightButton"
+metadata/_edit_group_ = true
+
+[node name="TextureRect" type="TextureRect" parent="Control/DoubleBtn"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 3.0
+offset_right = 14.0
+offset_bottom = 15.0
+texture = SubResource("AtlasTexture_idpfl")
+
+[node name="TextureRect2" type="TextureRect" parent="Control/DoubleBtn"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 3.0
+offset_right = 18.0
+offset_bottom = 15.0
+texture = SubResource("AtlasTexture_idpfl")
+
+[node name="MultiBtn" type="Button" parent="Control"]
+custom_minimum_size = Vector2(24, 18)
+layout_mode = 0
+offset_left = 64.0
+offset_top = -4.0
+offset_right = 88.0
+offset_bottom = 14.0
+size_flags_horizontal = 8
+theme_type_variation = &"DayAndNightButton"
+metadata/_edit_group_ = true
+
+[node name="TextureRect" type="TextureRect" parent="Control/MultiBtn"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 3.0
+offset_right = 12.0
+offset_bottom = 15.0
+texture = SubResource("AtlasTexture_n3ns4")
+
+[node name="TextureRect2" type="TextureRect" parent="Control/MultiBtn"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 3.0
+offset_right = 16.0
+offset_bottom = 15.0
+texture = SubResource("AtlasTexture_n3ns4")
+
+[node name="TextureRect3" type="TextureRect" parent="Control/MultiBtn"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 3.0
+offset_right = 20.0
+offset_bottom = 15.0
+texture = SubResource("AtlasTexture_n3ns4")

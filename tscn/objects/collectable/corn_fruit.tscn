@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://b6xbu3pwjdcr8"]
+
+[ext_resource type="Texture2D" uid="uid://2vyffseq48n1" path="res://asset/Objects/Basic_Plants.png" id="1_6ir5c"]
+[ext_resource type="PackedScene" uid="uid://c2m7rve2f3mxq" path="res://tscn/components/collectable_component.tscn" id="2_gb51a"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_364rt"]
+atlas = ExtResource("1_6ir5c")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6ir5c"]
+radius = 9.0
+
+[node name="CornFruit" type="Sprite2D"]
+texture = SubResource("AtlasTexture_364rt")
+
+[node name="CollectableComponent" parent="." instance=ExtResource("2_gb51a")]
+collect_name = "corn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectableComponent"]
+shape = SubResource("CircleShape2D_6ir5c")

@@ -27,10 +27,8 @@ script = ExtResource("1_p1pen")
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -8)
 sprite_frames = ExtResource("1_bqcf3")
-animation = &"chopping_right"
+animation = &"watering_left"
 autoplay = "idle_front"
-frame = 1
-frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -6)
@@ -60,9 +58,10 @@ script = ExtResource("7_m87kf")
 player = NodePath("../..")
 hit_collision_shape = NodePath("../../HitComponent/HitCollisionShape")
 
-[node name="Watering" type="Node" parent="StateMachine" node_paths=PackedStringArray("player")]
+[node name="Watering" type="Node" parent="StateMachine" node_paths=PackedStringArray("player", "hit_collision_shape")]
 script = ExtResource("9_rpqkn")
 player = NodePath("../..")
+hit_collision_shape = NodePath("../../HitComponent/HitCollisionShape")
 
 [node name="HitComponent" type="Area2D" parent="."]
 collision_layer = 8

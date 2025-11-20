@@ -21,7 +21,7 @@ func character_setup()->void:
 
 func set_movement_target()->void:
 	var target_position:Vector2 = NavigationServer2D.map_get_random_point(navigationagent2d.get_navigation_map(),navigationagent2d.navigation_layers,false)
-	prints("target",target_position)
+	#prints("target",target_position)
 	navigationagent2d.target_position = target_position
 	
 func _on_process(_delta : float) -> void:

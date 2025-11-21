@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=4 uid="uid://cg3f6bsc58fy2"]
+[gd_scene load_steps=7 format=4 uid="uid://cg3f6bsc58fy2"]
 
 [ext_resource type="TileSet" uid="uid://bgktw217b3aj5" path="res://res/tile_set.tres" id="2_byx6x"]
 [ext_resource type="PackedScene" uid="uid://dnbwl7lgn8fnb" path="res://tscn/components/field_cursor_component.tscn" id="3_rrkv3"]
+[ext_resource type="PackedScene" uid="uid://dehan8ycviok3" path="res://tscn/ui/game_screen.tscn" id="4_6ftqw"]
 [ext_resource type="PackedScene" uid="uid://jr0ss1k8w6la" path="res://tscn/characters/player.tscn" id="4_ghbgf"]
+[ext_resource type="PackedScene" uid="uid://c5vh8awo4gvny" path="res://tscn/components/crops_cursor_component.tscn" id="5_x6emn"]
+[ext_resource type="Script" uid="uid://beff8svmvts7t" path="res://tscn/components/crops_cursor_component.gd" id="6_1kpat"]
 
 [node name="TestPlantsBlock" type="Node2D"]
 y_sort_enabled = true
@@ -21,14 +24,18 @@ tile_set = ExtResource("2_byx6x")
 [node name="Dirt" type="TileMapLayer" parent="Env"]
 tile_set = ExtResource("2_byx6x")
 
-[node name="Nature" type="TileMapLayer" parent="Env"]
-tile_set = ExtResource("2_byx6x")
+[node name="Crops" type="Node2D" parent="."]
 
-[node name="CowNav" type="Node2D" parent="."]
-
-[node name="Player" parent="." instance=ExtResource("4_ghbgf")]
+[node name="Player" parent="." groups=["player"] instance=ExtResource("4_ghbgf")]
 position = Vector2(361, 78)
 
 [node name="FieldCursorComponent" parent="." node_paths=PackedStringArray("gass_tilemap_layer", "tilled_soil_tilemap_layer") instance=ExtResource("3_rrkv3")]
 gass_tilemap_layer = NodePath("../Env/Grass")
-tilled_soil_tilemap_layer = NodePath("../Env/Water")
+tilled_soil_tilemap_layer = NodePath("../Env/Dirt")
+terrain = 3
+
+[node name="CropsCursorComponent" parent="." node_paths=PackedStringArray("tilled_soil_tilemap_layer") instance=ExtResource("5_x6emn")]
+script = ExtResource("6_1kpat")
+tilled_soil_tilemap_layer = NodePath("../Env/Dirt")
+
+[node name="GameScreen" parent="." instance=ExtResource("4_6ftqw")]

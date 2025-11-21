@@ -21,7 +21,6 @@ func _unhandled_input(event: InputEvent) -> void:
 		tool_watering.release_focus()
 		tool_corn.release_focus()
 		tool_tomato.release_focus()
-	accept_event()
 
 func _on_tool_axe()->void:
 	ToolsManager.select_tool(DataTypes.Tools.AxeWood)

@@ -1,0 +1,9 @@
+~ start
+Raiaa: [[Hi|Hello|Howdy]], nice to meet you.
+Raiaa:[wave amp=25 freq=5] Welcome to farm.[/wave]
+Raiaa:[shake rate=20 level=10]This some[/shake]
+- Option 1
+	Nathan: You chose option 1
+- Option 2
+	Nathan: You chose option 2
+=> END

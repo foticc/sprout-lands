@@ -1,10 +1,17 @@
-[gd_scene load_steps=7 format=3 uid="uid://42rm035or8ah"]
+[gd_scene load_steps=11 format=3 uid="uid://42rm035or8ah"]
 
+[ext_resource type="Script" uid="uid://ckda3w0ejrm8g" path="res://tscn/characters/npc/guide.gd" id="1_6yo2i"]
 [ext_resource type="Shader" uid="uid://pbyyiddrq4ue" path="res://tscn/characters/npc/Guide.gdshader" id="1_jvwhs"]
 [ext_resource type="Texture2D" uid="uid://dcqqo8b5dbqbb" path="res://asset/Characters/Basic Charakter Spritesheet.png" id="1_kslh1"]
+[ext_resource type="PackedScene" uid="uid://4jq76ut3qen0" path="res://tscn/components/interactive_component.tscn" id="3_bi35l"]
+[ext_resource type="PackedScene" uid="uid://dib1lfcycbg1a" path="res://tscn/components/interactable_label_component.tscn" id="4_s4y87"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bi35l"]
 shader = ExtResource("1_jvwhs")
+shader_parameter/original_0 = Color(0.36078432, 0.30588236, 0.57254905, 1)
+shader_parameter/original_1 = Color(0.4627451, 0.42745098, 0.6666667, 1)
+shader_parameter/replace_0 = Color(0.5502209, 0.87492985, 0.98533577, 1)
+shader_parameter/replace_1 = Color(0.51853526, 0.4611268, 0.7843042, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jvwhs"]
 atlas = ExtResource("1_kslh1")
@@ -28,9 +35,24 @@ animations = [{
 "speed": 3.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s4y87"]
+size = Vector2(44, 42)
+
 [node name="Guide" type="Node2D"]
+script = ExtResource("1_6yo2i")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 material = SubResource("ShaderMaterial_bi35l")
 sprite_frames = SubResource("SpriteFrames_lko53")
 autoplay = "default"
+
+[node name="InteractiveComponent" parent="." instance=ExtResource("3_bi35l")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractiveComponent"]
+shape = SubResource("RectangleShape2D_s4y87")
+
+[node name="InteractableLabelComponent" parent="." instance=ExtResource("4_s4y87")]
+offset_left = -22.0
+offset_top = -21.0
+offset_right = -22.0
+offset_bottom = -21.0

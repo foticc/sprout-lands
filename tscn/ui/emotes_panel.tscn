@@ -1,0 +1,55 @@
+[gd_scene load_steps=6 format=3 uid="uid://o6a8w11fnpt5"]
+
+[ext_resource type="Theme" uid="uid://cac21ryjs3akx" path="res://res/game_ui_theme.tres" id="1_3wvws"]
+[ext_resource type="Texture2D" uid="uid://v8fwmw8iot6u" path="res://asset/ui/emotes.png" id="2_j5dxj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j5dxj"]
+atlas = ExtResource("2_j5dxj")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2qm1y"]
+atlas = ExtResource("2_j5dxj")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3wvws"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j5dxj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2qm1y")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[node name="EmotesPanel" type="Panel"]
+custom_minimum_size = Vector2(50, 50)
+offset_right = 50.0
+offset_bottom = 50.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme = ExtResource("1_3wvws")
+theme_type_variation = &"WoodsPanel"
+
+[node name="Emote" type="Control" parent="."]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Emote"]
+position = Vector2(20, 22)
+sprite_frames = SubResource("SpriteFrames_3wvws")
+autoplay = "default"

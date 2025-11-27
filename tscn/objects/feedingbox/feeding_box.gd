@@ -84,7 +84,21 @@ func add_scence()->void:
 	for oscens in out_scence:
 		var instance = oscens.instantiate() as Node2D
 		instance.global_position = pos
+		instance.scale = Vector2(0, 0)  # 初始从 0 放大
 		get_tree().root.add_child(instance)
+
+		# 创建 Tween
+		var tween = instance.create_tween()
+		tween.tween_property(instance, "scale", Vector2(1.3, 1.3), 0.15).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+		tween.tween_property(instance, "scale", Vector2(0.9, 0.9), 0.1).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+		tween.tween_property(instance, "scale", Vector2(1.05, 1.05), 0.08).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+		tween.tween_property(instance, "scale", Vector2(1, 1), 0.07).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+
+		# 可选：加轻微 Y 位移晃动
+		var original_y = instance.position.y
+		tween.tween_property(instance, "position:y", original_y - 10, 0.1).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+		tween.tween_property(instance, "position:y", original_y + 5, 0.1).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+		tween.tween_property(instance, "position:y", original_y, 0.07).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 	
 
 

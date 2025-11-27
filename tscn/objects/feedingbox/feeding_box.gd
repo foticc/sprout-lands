@@ -20,11 +20,9 @@ const CORN_FRUIT = preload("uid://b6xbu3pwjdcr8")
 var box_is_open:=false
 var is_in_range:=false
 
-var marker_point:Vector2 = Vector2.ZERO
 
 func _ready() -> void:
 	self.interactable_label_component.hide()
-	self.marker_point = self.marker_2d.global_position
 	self.interactive_component.interactive_active.connect(_on_open)
 	self.interactive_component.interactive_deactive.connect(_on_close)
 	self.feed_component.food_revied.connect(_on_food_revied)
@@ -60,7 +58,7 @@ func _on_feed_animals()->void:
 
 func tigger_feed_animals(item:String,scene:Resource)->void:
 	if not InventoryManager.has_item(item):
-		ToastManager.show("没有需要得物品唉😁")
+		ToastManager.show("没有需要得物品唉😅")
 		return
 
 	var instance = scene.instantiate()
@@ -82,7 +80,7 @@ func _on_food_revied(_area:Area2D)->void:
 	call_deferred("add_scence")
 
 func add_scence()->void:
-	var pos = get_random_position_in_circle(marker_point,out_radius)
+	var pos = get_random_position_in_circle(self.marker_2d.global_position,out_radius)
 	for oscens in out_scence:
 		var instance = oscens.instantiate() as Node2D
 		instance.global_position = pos

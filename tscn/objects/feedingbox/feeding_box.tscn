@@ -112,10 +112,6 @@ size = Vector2(52, 45)
 
 [node name="FeedingBox" type="StaticBody2D"]
 script = ExtResource("1_pl3vm")
-feed_type = null
-dialogue_type = null
-out_radius = null
-out_scence = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 0.5)

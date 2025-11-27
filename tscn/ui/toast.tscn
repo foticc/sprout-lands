@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://p6cwx2alk3rf"]
+
+[ext_resource type="Script" uid="uid://bfrheokhc3jma" path="res://tscn/ui/toast.gd" id="1_w52cf"]
+[ext_resource type="Theme" uid="uid://cac21ryjs3akx" path="res://res/game_ui_theme.tres" id="2_tlfx7"]
+
+[node name="Toast" type="CanvasLayer"]
+script = ExtResource("1_w52cf")
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -55.5
+offset_top = 30.0
+offset_right = 55.5
+offset_bottom = 53.0
+grow_horizontal = 2
+theme = ExtResource("2_tlfx7")
+theme_type_variation = &"ToastLabel"
+theme_override_font_sizes/font_size = 9
+text = "这是一个Toast!"
+horizontal_alignment = 1
+vertical_alignment = 1

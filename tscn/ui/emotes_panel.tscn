@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://o6a8w11fnpt5"]
+[gd_scene load_steps=13 format=3 uid="uid://o6a8w11fnpt5"]
 
 [ext_resource type="Theme" uid="uid://cac21ryjs3akx" path="res://res/game_ui_theme.tres" id="1_3wvws"]
+[ext_resource type="Script" uid="uid://bfo7iqfupn0dv" path="res://tscn/ui/emotes_panel.gd" id="2_2qm1y"]
 [ext_resource type="Texture2D" uid="uid://v8fwmw8iot6u" path="res://asset/ui/emotes.png" id="2_j5dxj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j5dxj"]
@@ -10,6 +11,30 @@ region = Rect2(0, 32, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_2qm1y"]
 atlas = ExtResource("2_j5dxj")
 region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o777a"]
+atlas = ExtResource("2_j5dxj")
+region = Rect2(0, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pvcxv"]
+atlas = ExtResource("2_j5dxj")
+region = Rect2(32, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qurnn"]
+atlas = ExtResource("2_j5dxj")
+region = Rect2(0, 256, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1pd6y"]
+atlas = ExtResource("2_j5dxj")
+region = Rect2(32, 256, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8npah"]
+atlas = ExtResource("2_j5dxj")
+region = Rect2(0, 192, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3w6rs"]
+atlas = ExtResource("2_j5dxj")
+region = Rect2(32, 192, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_3wvws"]
 animations = [{
@@ -23,6 +48,34 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o777a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pvcxv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qurnn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1pd6y")
+}],
+"loop": false,
+"name": &"emo_ovo",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8npah")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3w6rs")
+}],
+"loop": false,
+"name": &"excited",
+"speed": 5.0
 }]
 
 [node name="EmotesPanel" type="Panel"]
@@ -33,6 +86,7 @@ size_flags_horizontal = 0
 size_flags_vertical = 0
 theme = ExtResource("1_3wvws")
 theme_type_variation = &"WoodsPanel"
+script = ExtResource("2_2qm1y")
 
 [node name="Emote" type="Control" parent="."]
 custom_minimum_size = Vector2(40, 40)

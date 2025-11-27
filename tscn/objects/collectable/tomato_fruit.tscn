@@ -14,6 +14,7 @@ radius = 7.071068
 texture = SubResource("AtlasTexture_7gw4m")
 
 [node name="CollectableComponent" parent="." instance=ExtResource("2_ekliq")]
+collision_layer = 160
 collect_name = "tomato"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollectableComponent"]

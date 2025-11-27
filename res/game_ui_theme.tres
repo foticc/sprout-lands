@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=32 format=3 uid="uid://cac21ryjs3akx"]
+[gd_resource type="Theme" load_steps=34 format=3 uid="uid://cac21ryjs3akx"]
 
 [ext_resource type="Texture2D" uid="uid://b0mdo38kbd1yy" path="res://asset/ui/basic_ui_sprites.png" id="1_h7wnn"]
 [ext_resource type="FontFile" uid="uid://bsxwhwisaiexc" path="res://asset/ui/font/pixelFont-7-8x14-sproutLands.ttf" id="1_o5dh1"]
@@ -66,6 +66,17 @@ texture_margin_top = 4.2116632
 texture_margin_right = 4.162548
 texture_margin_bottom = 4.162548
 region_rect = Rect2(0, 0, 26, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3bvf0"]
+atlas = ExtResource("1_h7wnn")
+region = Rect2(742, 7, 18, 18)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kvdym"]
+texture = SubResource("AtlasTexture_3bvf0")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_68lxm"]
 load_path = "res://.godot/imported/basic_ui_sprites.png-b5e8d466363f4412e5c226d522d9c55b.ctex"
@@ -165,6 +176,8 @@ MarginContainer/constants/margin_bottom = 10
 MarginContainer/constants/margin_left = 10
 MarginContainer/constants/margin_right = 10
 MarginContainer/constants/margin_top = 10
+ToastLabel/base_type = &"Label"
+ToastLabel/styles/normal = SubResource("StyleBoxTexture_kvdym")
 ToolButton/base_type = &"Button"
 ToolButton/styles/disabled = SubResource("StyleBoxTexture_f83am")
 ToolButton/styles/focus = SubResource("StyleBoxTexture_2ycav")

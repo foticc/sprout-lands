@@ -14,6 +14,7 @@ radius = 9.0
 texture = SubResource("AtlasTexture_364rt")
 
 [node name="CollectableComponent" parent="." instance=ExtResource("2_gb51a")]
+collision_layer = 160
 collect_name = "corn"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollectableComponent"]

@@ -1,0 +1,15 @@
+~ start_chicken
+Box: Feed Chickens?
+- Yes
+	do GameDialogueManager.action_feed_animals()
+- No
+	Box: Bye
+=> END
+
+~ start_cow
+Box: Feed Cow?
+- Yes
+	do GameDialogueManager.action_feed_animals()
+- No
+	Box: Bye
+=> END

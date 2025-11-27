@@ -1,8 +1,14 @@
-[gd_scene load_steps=4 format=4 uid="uid://cg3165576mc86"]
+[gd_scene load_steps=10 format=4 uid="uid://cg3165576mc86"]
 
 [ext_resource type="TileSet" uid="uid://bgktw217b3aj5" path="res://res/tile_set.tres" id="2_aili7"]
 [ext_resource type="PackedScene" uid="uid://42rm035or8ah" path="res://tscn/characters/npc/Guide.tscn" id="3_urwts"]
+[ext_resource type="PackedScene" uid="uid://dehan8ycviok3" path="res://tscn/ui/game_screen.tscn" id="4_d5s83"]
 [ext_resource type="PackedScene" uid="uid://jr0ss1k8w6la" path="res://tscn/characters/player.tscn" id="4_mptsg"]
+[ext_resource type="PackedScene" uid="uid://do7512cj16e58" path="res://tscn/objects/feedingbox/feeding_box.tscn" id="5_ax3l4"]
+[ext_resource type="PackedScene" uid="uid://drfn7rt6noua6" path="res://tscn/objects/collectable/milk.tscn" id="6_aili7"]
+[ext_resource type="PackedScene" uid="uid://mkg1bedqs4d1" path="res://tscn/objects/collectable/egg.tscn" id="6_m0221"]
+[ext_resource type="PackedScene" uid="uid://b6xbu3pwjdcr8" path="res://tscn/objects/collectable/corn_fruit.tscn" id="6_pfoam"]
+[ext_resource type="PackedScene" uid="uid://bpuif0rbcy158" path="res://tscn/objects/collectable/tomato_fruit.tscn" id="7_aili7"]
 
 [node name="NpcTest" type="Node2D"]
 y_sort_enabled = true
@@ -38,12 +44,44 @@ tile_set = ExtResource("2_aili7")
 tile_map_data = PackedByteArray("AAAOAAwABQADAAIAAAAOAAsABQAAAAEAAAAOAAoABQAAAAEAAAAOAAkABQAAAAEAAAAOAAgABQAAAAEAAAAOAAcABQAAAAEAAAAOAAYABQAAAAEAAAAOAAUABQAAAAEAAAAOAAQABQADAAAAAAANAAwABQACAAMAAAANAAQABQACAAMAAAAMAAwABQACAAMAAAAMAAQABQACAAMAAAALAAwABQACAAMAAAALAAQABQACAAMAAAAKAAwABQABAAMAAAAKAAQABQACAAMAAAAJAAQABQACAAMAAAAIAAQABQACAAMAAAAHAAQABQACAAMAAAAGAAQABQACAAMAAAAFAAwABQADAAMAAAAFAAQABQACAAMAAAAEAAwABQACAAMAAAAEAAQABQACAAMAAAADAAwABQABAAIAAAADAAsABQAAAAEAAAADAAoABQAAAAEAAAADAAkABQAAAAEAAAADAAgABQAAAAEAAAADAAcABQAAAAEAAAADAAYABQAAAAEAAAADAAUABQAAAAEAAAADAAQABQABAAAAAAA=")
 tile_set = ExtResource("2_aili7")
 
-[node name="ChickenNav" type="Node2D" parent="."]
-
-[node name="CowNav" type="Node2D" parent="."]
-
 [node name="Player" parent="." instance=ExtResource("4_mptsg")]
 position = Vector2(361, 78)
 
 [node name="Guide" parent="." instance=ExtResource("3_urwts")]
 position = Vector2(274.20468, 86.45345)
+
+[node name="GameScreen" parent="." instance=ExtResource("4_d5s83")]
+
+[node name="ChickenFeedingBox" parent="." instance=ExtResource("5_ax3l4")]
+position = Vector2(349, 180)
+feed_type = "corn"
+dialogue_type = "start_chicken"
+out_radius = 10.0
+out_scence = Array[PackedScene]([ExtResource("6_m0221")])
+
+[node name="CowFeedingBox" parent="." instance=ExtResource("5_ax3l4")]
+position = Vector2(374, 114)
+feed_type = "tomato"
+dialogue_type = "start_cow"
+out_radius = 10.0
+out_scence = Array[PackedScene]([ExtResource("6_aili7")])
+
+[node name="Collectable" type="Node2D" parent="."]
+
+[node name="CornFruit" parent="Collectable" instance=ExtResource("6_pfoam")]
+position = Vector2(397, 77)
+
+[node name="CornFruit2" parent="Collectable" instance=ExtResource("6_pfoam")]
+position = Vector2(382, 45)
+
+[node name="CornFruit4" parent="Collectable" instance=ExtResource("6_pfoam")]
+position = Vector2(446, 46)
+
+[node name="TomatoFruit" parent="Collectable" instance=ExtResource("7_aili7")]
+position = Vector2(473, 61)
+
+[node name="TomatoFruit2" parent="Collectable" instance=ExtResource("7_aili7")]
+position = Vector2(438, 89)
+
+[node name="TomatoFruit3" parent="Collectable" instance=ExtResource("7_aili7")]
+position = Vector2(419, 58)

@@ -1,9 +1,8 @@
 ~ start
 Raiaa: [[Hi|Hello|Howdy]], nice to meet you.
 Raiaa:[wave amp=25 freq=5] Welcome to farm.[/wave]
-Raiaa:[shake rate=20 level=10]This some[/shake]
-- Option 1
-	Nathan: You chose option 1
-- Option 2
-	Nathan: You chose option 2
+Raiaa:[shake rate=20 level=10]These seeds can be given to you. If you need them later, you can come and get them anytime[/shake]
+- Obtain seeds
+	do GameDialogueManager.action_give_seed()
+	You have obtained the seeds
 => END

@@ -10,3 +10,11 @@ func add_item(item:String)->void:
 	else:
 		inventory.set(item,1)
 	inventory_changed.emit(item)
+
+func has_item(item:String) -> bool:
+	return inventory.has(item)
+
+func remove_item(item:String,count:int = 1)->void:
+	if inventory.has(item):
+		inventory[item] = maxi(inventory.get(item)-count,0)
+		inventory_changed.emit(item)

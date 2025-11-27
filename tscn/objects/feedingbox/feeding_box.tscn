@@ -1,10 +1,9 @@
-[gd_scene load_steps=21 format=3 uid="uid://do7512cj16e58"]
+[gd_scene load_steps=19 format=3 uid="uid://do7512cj16e58"]
 
 [ext_resource type="Texture2D" uid="uid://d1swptetbkv4f" path="res://asset/Objects/Chest.png" id="1_gtroe"]
 [ext_resource type="Script" uid="uid://rbjrholj8ojh" path="res://tscn/objects/feedingbox/feeding_box.gd" id="1_pl3vm"]
 [ext_resource type="PackedScene" uid="uid://4jq76ut3qen0" path="res://tscn/components/interactive_component.tscn" id="2_wqvfm"]
 [ext_resource type="PackedScene" uid="uid://dib1lfcycbg1a" path="res://tscn/components/interactable_label_component.tscn" id="3_748ee"]
-[ext_resource type="PackedScene" uid="uid://cjo4js0fqjxgu" path="res://tscn/components/feed_component.tscn" id="5_kqdrb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kqdrb"]
 size = Vector2(17, 15)
@@ -105,10 +104,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_748ee"]
-size = Vector2(40, 34)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5og0s"]
-size = Vector2(52, 45)
+size = Vector2(59, 53)
 
 [node name="FeedingBox" type="StaticBody2D"]
 script = ExtResource("1_pl3vm")
@@ -134,10 +130,3 @@ offset_bottom = -6.0
 
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(25, 21)
-
-[node name="FeedComponent" parent="." instance=ExtResource("5_kqdrb")]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FeedComponent"]
-position = Vector2(0, -1.5)
-shape = SubResource("RectangleShape2D_5og0s")
-debug_color = Color(0.8611081, 0.3392788, 0.33719125, 0.41960785)

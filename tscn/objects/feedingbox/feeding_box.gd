@@ -8,7 +8,6 @@ extends Node2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var interactive_component: InteractiveComponent = $InteractiveComponent
 @onready var interactable_label_component: Control = $InteractableLabelComponent
-@onready var feed_component: FeedComponent = $FeedComponent
 @onready var marker_2d: Marker2D = $Marker2D
 
 const dialogue_scene = preload("res://dialogue/game_dialogue_balloon.tscn")
@@ -25,7 +24,7 @@ func _ready() -> void:
 	self.interactable_label_component.hide()
 	self.interactive_component.interactive_active.connect(_on_open)
 	self.interactive_component.interactive_deactive.connect(_on_close)
-	self.feed_component.food_revied.connect(_on_food_revied)
+	#self.feed_component.food_revied.connect(_on_food_revied)
 	
 	GameDialogueManager.feed_animals.connect(_on_feed_animals)
 
@@ -71,13 +70,14 @@ func tigger_feed_animals(item:String,scene:Resource)->void:
 	var tween = get_tree().create_tween()
 	tween.tween_property(instance,"position",self.global_position,1.0)
 	tween.tween_property(instance,"scale",Vector2(0.5,0.5),1.0)
-	tween.tween_callback(instance.queue_free)
+	#tween.tween_callback(instance.queue_free)
+	await tween.finished
 	# bug 当实例化出玉米或者番茄对象时，由于玉米或者番茄对象 也是可收集的，当它当好碰到人物的碰撞层时，
 	# 被人物收集到了，导致现象是  玉米的数量-1 后又+1
 	InventoryManager.remove_item(item)
-
-func _on_food_revied(_area:Area2D)->void:
+	instance.queue_free()
 	call_deferred("add_scence")
+
 
 func add_scence()->void:
 	var pos = get_random_position_in_circle(self.marker_2d.global_position,out_radius)

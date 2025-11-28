@@ -27,7 +27,7 @@ script = ExtResource("1_p1pen")
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -8)
 sprite_frames = ExtResource("1_bqcf3")
-animation = &"watering_left"
+animation = &"idle_front"
 autoplay = "idle_front"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

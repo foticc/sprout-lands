@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://buf0fa2dfiy2j"]
+[gd_scene load_steps=10 format=3 uid="uid://buf0fa2dfiy2j"]
 
 [ext_resource type="Texture2D" uid="uid://2vyffseq48n1" path="res://asset/Objects/Basic_Plants.png" id="1_dokn2"]
 [ext_resource type="Script" uid="uid://bqwnt816e6f7c" path="res://tscn/objects/plants/tomato.gd" id="1_rqno2"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://bhesdwyw4lkch" path="res://tscn/components/growth_cycle_component.tscn" id="2_x8tvj"]
 [ext_resource type="PackedScene" uid="uid://breq3bi0hxmav" path="res://tscn/components/hurt_component.tscn" id="3_6paxr"]
 [ext_resource type="PackedScene" uid="uid://cbs5a40hm27u3" path="res://tscn/objects/plants/watering_particles.tscn" id="3_rqno2"]
+[ext_resource type="PackedScene" uid="uid://uj4bbwrj1tg6" path="res://tscn/components/save_data_component.tscn" id="7_lv4pc"]
+[ext_resource type="Resource" uid="uid://d0653d35rxjlx" path="res://resource/node_data_resource.tres" id="8_o5cjr"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dokn2"]
 radius = 7.0
@@ -33,3 +35,6 @@ dataTools = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtComponent"]
 shape = SubResource("CircleShape2D_dokn2")
+
+[node name="SaveDataComponent" parent="." instance=ExtResource("7_lv4pc")]
+save_data_resource = ExtResource("8_o5cjr")

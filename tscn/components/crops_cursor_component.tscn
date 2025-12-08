@@ -1,3 +1,6 @@
-[gd_scene format=3 uid="uid://c5vh8awo4gvny"]
+[gd_scene load_steps=2 format=3 uid="uid://c5vh8awo4gvny"]
+
+[ext_resource type="Script" uid="uid://beff8svmvts7t" path="res://tscn/components/crops_cursor_component.gd" id="1_omwmn"]
 
 [node name="CropsCursorComponent" type="Node2D"]
+script = ExtResource("1_omwmn")

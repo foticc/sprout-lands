@@ -1,11 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://l1dc6irwt48s"]
+[gd_scene load_steps=7 format=3 uid="uid://l1dc6irwt48s"]
 
+[ext_resource type="Script" uid="uid://cfym7mndl3xx7" path="res://tscn/main/main_scene.gd" id="1_c7tod"]
 [ext_resource type="PackedScene" uid="uid://dhkifkp7w4ifx" path="res://tscn/components/day_night_cycle_component.tscn" id="1_wv5rv"]
 [ext_resource type="PackedScene" uid="uid://cab2stha70wfn" path="res://tscn/main/level/Level1.tscn" id="3_0ciok"]
 [ext_resource type="PackedScene" uid="uid://dehan8ycviok3" path="res://tscn/ui/game_screen.tscn" id="4_dpty8"]
+[ext_resource type="PackedScene" uid="uid://ckbmv6sba0vqs" path="res://tscn/ui/game_menu_scene.tscn" id="5_4wwnx"]
+[ext_resource type="PackedScene" uid="uid://bmd2lcd085772" path="res://tscn/components/save_level_data_component.tscn" id="6_c3yie"]
 
 [node name="MainScene" type="Node2D"]
 y_sort_enabled = true
+script = ExtResource("1_c7tod")
 
 [node name="DayNightCycleComponent" parent="." instance=ExtResource("1_wv5rv")]
 
@@ -14,3 +18,8 @@ y_sort_enabled = true
 [node name="Level1" parent="GameRoot" instance=ExtResource("3_0ciok")]
 
 [node name="GameScreen" parent="." instance=ExtResource("4_dpty8")]
+
+[node name="GameMenuScene" parent="." instance=ExtResource("5_4wwnx")]
+visible = false
+
+[node name="SaveLevelDataComponent" parent="." instance=ExtResource("6_c3yie")]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://b10e2vxqnaa0p"]
+[gd_scene load_steps=10 format=3 uid="uid://b10e2vxqnaa0p"]
 
 [ext_resource type="Texture2D" uid="uid://2vyffseq48n1" path="res://asset/Objects/Basic_Plants.png" id="1_m0esq"]
 [ext_resource type="Script" uid="uid://bb5bg5kw2wkb2" path="res://tscn/objects/plants/corn.gd" id="1_mrd68"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://breq3bi0hxmav" path="res://tscn/components/hurt_component.tscn" id="2_12q4j"]
 [ext_resource type="PackedScene" uid="uid://bq2p3gjtejeqj" path="res://tscn/objects/plants/flowering_particles.tscn" id="3_ku44t"]
 [ext_resource type="PackedScene" uid="uid://bhesdwyw4lkch" path="res://tscn/components/growth_cycle_component.tscn" id="4_dqf2b"]
+[ext_resource type="PackedScene" uid="uid://uj4bbwrj1tg6" path="res://tscn/components/save_data_component.tscn" id="7_yuqk6"]
+[ext_resource type="Resource" uid="uid://d0653d35rxjlx" path="res://resource/node_data_resource.tres" id="8_ff6aq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_12q4j"]
 radius = 4.1231055
@@ -33,3 +35,6 @@ dataTools = 3
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtComponent"]
 position = Vector2(0, 3)
 shape = SubResource("CircleShape2D_12q4j")
+
+[node name="SaveDataComponent" parent="." instance=ExtResource("7_yuqk6")]
+save_data_resource = ExtResource("8_ff6aq")

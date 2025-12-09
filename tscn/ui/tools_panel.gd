@@ -12,31 +12,6 @@ func _ready() -> void:
 	tool_watering.pressed.connect(_on_tool_watering)
 	tool_corn.pressed.connect(_on_tool_corn)
 	tool_tomato.pressed.connect(_on_tool_tomato)
-	
-	tool_axe.disabled = true
-	tool_axe.focus_mode = Control.FOCUS_NONE
-	tool_tilling.disabled = true
-	tool_tilling.focus_mode = Control.FOCUS_NONE
-	tool_watering.disabled = true
-	tool_watering.focus_mode = Control.FOCUS_NONE
-	tool_corn.disabled = true
-	tool_corn.focus_mode = Control.FOCUS_NONE
-	tool_tomato.disabled = true
-	tool_tomato.focus_mode = Control.FOCUS_NONE
-	GameDialogueManager.give_some_seed.connect(_on_tool_active)
-
-
-func _on_tool_active()->void:
-	tool_axe.disabled = false
-	tool_axe.focus_mode = Control.FOCUS_CLICK
-	tool_tilling.disabled = false
-	tool_tilling.focus_mode = Control.FOCUS_CLICK
-	tool_watering.disabled = false
-	tool_watering.focus_mode = Control.FOCUS_CLICK
-	tool_corn.disabled = false
-	tool_corn.focus_mode = Control.FOCUS_CLICK
-	tool_tomato.disabled = false
-	tool_tomato.focus_mode = Control.FOCUS_CLICK
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("release"):

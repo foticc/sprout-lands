@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://cab2stha70wfn"]
+[gd_scene load_steps=13 format=4 uid="uid://cab2stha70wfn"]
 
 [ext_resource type="TileSet" uid="uid://bgktw217b3aj5" path="res://res/tile_set.tres" id="1_ihh30"]
 [ext_resource type="PackedScene" uid="uid://jr0ss1k8w6la" path="res://tscn/characters/player.tscn" id="2_jttlo"]
@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://42rm035or8ah" path="res://tscn/characters/npc/Guide.tscn" id="6_ra0l1"]
 [ext_resource type="PackedScene" uid="uid://dvp3j8wn54xjm" path="res://tscn/characters/cow/cow.tscn" id="7_4dvuh"]
 [ext_resource type="PackedScene" uid="uid://dnlds28eo2dli" path="res://tscn/characters/chicken/chicken.tscn" id="7_d702q"]
+[ext_resource type="PackedScene" uid="uid://c5vh8awo4gvny" path="res://tscn/components/crops_cursor_component.tscn" id="9_tgibc"]
+[ext_resource type="PackedScene" uid="uid://dnbwl7lgn8fnb" path="res://tscn/components/field_cursor_component.tscn" id="10_7xupg"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_4dvuh"]
 vertices = PackedVector2Array(714.0781, 70.703125, 713.0703, -55.25, 809.7969, -57.726563, 806.1875, 132, 746.3828, 132, 665.3906, 125.77344, 666.4297, 101, 646.7969, 72.71094, 646.21094, 101)
@@ -59,7 +61,7 @@ tile_set = ExtResource("1_ihh30")
 tile_map_data = PackedByteArray("AAAkAB0AAwAHAAQAAAAoAB0AAwAHAAQAAAAtAB0AAwAHAAQAAAAvACAAAwAHAAQAAAAuACEAAwAHAAQAAAAtACIAAwAHAAQAAAAsACIAAwAHAAQAAAAsACAAAwAHAAQAAAAsABsAAwAHAAQAAAAsABwAAwAHAAQAAAArAB4AAwAHAAQAAAAvAB0AAwAHAAQAAAAyACAAAwAHAAQAAAA0ACIAAwAHAAQAAAA0ACMAAwAHAAQAAAA1ACMAAwAHAAQAAAAxACMAAwAHAAQAAAAuACIAAwAHAAQAAAA3ACAAAwAHAAQAAAA3ACMAAwAHAAQAAAAuACMAAwAHAAQAAAAwACEAAwAHAAQAAAAYABYAAwAIAAQAAAAXABcAAwAIAAQAAAAWABgAAwAIAAQAAAAaABcAAwAIAAQAAAAVABUAAwAIAAQAAAAbABgAAwAIAAQAAAAVABcAAwAIAAQAAAALABYAAwAIAAQAAAAMABgAAwAIAAQAAAALABkAAwAIAAQAAAAMABYAAwAIAAQAAAANABoAAwAIAAQAAAD//xIAAwAIAAQAAAD+/xIAAwAIAAQAAAD+/xEAAwAIAAQAAAD9/xEAAwAIAAQAAAD8/xEAAwAIAAQAAAD7/xEAAwAIAAQAAAD4/w8AAwAIAAQAAAD1/xAAAwAHAAQAAAD1/xMAAwAIAAQAAAD1/xUAAwAIAAQAAAD1/xYAAwAIAAQAAAD1/xcAAwAIAAQAAAD0/xwAAwAIAAQAAADz/x0AAwAIAAQAAADz/x8AAwAIAAQAAAD2/xsAAwAHAAQAAAD2/xwAAwAHAAQAAAD2/x8AAwAHAAQAAAADACIAAwAIAAQAAAADACMAAwAIAAQAAAABACMAAwAIAAQAAAAAACMAAwAIAAQAAAD9/yIAAwAIAAQAAAD5/yMAAwAIAAQAAAD4/yMAAwAIAAQAAAD5/yQAAwAIAAQAAADz/yMAAwAHAAQAAADz/yIAAwAHAAQAAAD0/yEAAwAHAAQAAAD0/x8AAwAHAAQAAADz/xsAAwAHAAQAAADz/xoAAwAHAAQAAADy/xgAAwAHAAQAAADy/xcAAwAHAAQAAADy/xYAAwAHAAQAAADz/xUAAwAHAAQAAADz/xMAAwAHAAQAAAD0/xEAAwAHAAQAAAD2/xcAAwAHAAQAAAD2/xoAAwAHAAQAAAD2//r/AwAHAAQAAAD4////AwAHAAQAAAD9//r/AwAHAAQAAAD9//n/AwAHAAQAAAD+////AwAHAAQAAAD+/wAAAwAHAAQAAAD9/wAAAwAHAAQAAAD7////AwAHAAQAAADy//f/AwAHAAQAAADy//n/AwAHAAQAAADy//r/AwAHAAQAAADy//z/AwAHAAQAAAD7/wAAAwAHAAQAAAD///7/AwAHAAQAAAD///3/AwAHAAQAAAD+//n/AwAHAAQAAAD1//j/AwAHAAQAAAD1//n/AwAHAAQAAAD1////AwAHAAQAAAA4AAIAAwAHAAQAAAA5AAMAAwAHAAQAAAA8AAUAAwAHAAQAAAA9AAUAAwAHAAQAAAA+AAUAAwAHAAQAAAA8AAIAAwAHAAQAAAA8AAEAAwAHAAQAAABAAAMAAwAHAAQAAABBAAMAAwAHAAQAAABDAAUAAwAHAAQAAABAAAUAAwAHAAQAAABBAAEAAwAHAAQAAABFAAQAAwAHAAQAAAA3AAQAAwAHAAQAAAD4//z/AwAHAAQAAAD7//r/AwAHAAQAAAD7//3/AwAHAAQAAAD1//3/AwAIAAQAAADz////AwAIAAQAAAD5//n/AwAIAAQAAAD9//v/AwAIAAQAAAA8AAMAAwAIAAQAAAA6AAQAAwAIAAQAAAA=")
 tile_set = ExtResource("1_ihh30")
 
-[node name="Player" parent="." instance=ExtResource("2_jttlo")]
+[node name="Player" parent="." groups=["player"] instance=ExtResource("2_jttlo")]
 position = Vector2(361, 78)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
@@ -146,3 +148,13 @@ position = Vector2(163, 161)
 
 [node name="Cow5" parent="CowNav/groups" instance=ExtResource("7_4dvuh")]
 position = Vector2(169, 123)
+
+[node name="CropsCursorComponent" parent="." node_paths=PackedStringArray("tilled_soil_tilemap_layer") instance=ExtResource("9_tgibc")]
+tilled_soil_tilemap_layer = NodePath("../Env/Dirt")
+
+[node name="FieldCursorComponent" parent="." node_paths=PackedStringArray("gass_tilemap_layer", "tilled_soil_tilemap_layer") instance=ExtResource("10_7xupg")]
+gass_tilemap_layer = NodePath("../Env/Grass")
+tilled_soil_tilemap_layer = NodePath("../Env/Dirt")
+terrain = 3
+
+[node name="Crops" type="Node2D" parent="."]
